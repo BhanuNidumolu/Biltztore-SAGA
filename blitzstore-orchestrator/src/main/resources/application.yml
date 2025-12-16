@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: blitzstore-orchestrator
+
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: orchestrator
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  datasource:
+    url: jdbc:mysql://mysql-orchestrator:3306/orchestrator_db
+    username: root
+    password: Nidumolu@14
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8083
